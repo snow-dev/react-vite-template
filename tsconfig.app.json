@@ -14,7 +14,8 @@
       "@molecules/*": ["src/components/molecules/*"],
       "@organisms/*": ["src/components/organisms/*"],
       "@schemas/*": ["src/components/schemas/*"],
-      "@templates/*": ["src/components/templates/*"]
+      "@templates/*": ["src/components/templates/*"],
+      "@utils/*": ["src/utils/*"]
     },
 
     /* Bundler mode */

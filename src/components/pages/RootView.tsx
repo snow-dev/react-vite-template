@@ -24,6 +24,7 @@ const router = createBrowserRouter([
 										path: ':menu', // Componente que maneja el contenido final
 									},
 								],
+								element: <Home />,
 								path: ':type',
 							},
 						],

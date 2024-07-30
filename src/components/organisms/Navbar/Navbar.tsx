@@ -88,7 +88,7 @@ const escenarios: MenuOption[] = [
 enum LEVEL {
 	COMPANY,
 	MODULE,
-	TOPIC,
+	ESCENARIO,
 }
 
 const Navbar: FC = () => {
@@ -108,14 +108,29 @@ const Navbar: FC = () => {
 		}
 	}, [navigate, activeCompany, activeModule, activeEscenarios]);
 
-	const handleItemClick = (setActive: (id: number) => void, id: number) => {
-		setActive(id);
+	const handleItemClick = (setActive: (id: number) => void, id: number, level: LEVEL) => {
+		if (level === LEVEL.COMPANY) {
+			setActiveCompany(id);
+			setActiveModule(-1);
+			setActiveEscenarios(-1);
+		} else if (level === LEVEL.MODULE) {
+			setActiveModule(id);
+			setActiveEscenarios(-1);
+		} else if (level === LEVEL.ESCENARIO) setActive(id);
 	};
 
 	const composeItem = (item: MenuOption, level: LEVEL, setActive: (itemId: number) => void, active: number) => (
 		<ItemContainer key={item.id}>
-			<StyledButtonBase active={(active === item.id).toString()} onClick={() => handleItemClick(setActive, item.id)}>
-				<Typography color='common.white' fontSize='large' fontWeight='bold' marginLeft={`${level}rem`}>
+			<StyledButtonBase
+				active={(active === item.id).toString()}
+				onClick={() => handleItemClick(setActive, item.id, level)}
+			>
+				<Typography
+					color={active === item.id ? 'secondary' : 'common.white'}
+					fontSize='large'
+					fontWeight='bold'
+					marginLeft={`${level}rem`}
+				>
 					{item.name}
 				</Typography>
 			</StyledButtonBase>
@@ -131,7 +146,7 @@ const Navbar: FC = () => {
 		items.map((item: MenuOption) => (
 			<Fragment key={item.id}>
 				{composeItem(item, level, setActive, activeModule)}
-				{activeModule === item.id && composeEscenarios(escenarios, LEVEL.TOPIC, setActiveEscenarios)}
+				{activeModule === item.id && composeEscenarios(escenarios, LEVEL.ESCENARIO, setActiveEscenarios)}
 			</Fragment>
 		));
 

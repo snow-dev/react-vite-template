@@ -23,11 +23,12 @@ export const ItemContainer = styled(Box)`
 `;
 
 export const StyledButtonBase = styled(ButtonBase)<{ active: string }>`
-	border-radius: 0;
+	//border-radius: 0;
 	padding-left: 10px;
 	background-color: transparent;
-	border: none;
 	height: 3rem;
-	width: auto;
-	${({ active }) => active === 'true' && 'text-decoration: underline;'}
+	width: 100%;
+	place-content: flex-start;
+
+	${({ active }) => active === 'true' && 'text-decoration: none; place-content: flex-start;'}
 `;

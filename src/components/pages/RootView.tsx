@@ -5,13 +5,38 @@ import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
 
 import Error from '@pages/Error';
 import Home from '@pages/Home.tsx';
+import Administration from '@pages/Administration.tsx';
 
 import { createCustomTheme } from '../../assets/theme/theme.ts';
 import RootContainer from '../templates/root-container.tsx';
 
 const router = createBrowserRouter([
 	{
-		children: [{ element: <Home />, path: '/home' }],
+		children: [
+			{
+				children: [
+					{
+						children: [
+							{
+								children: [
+									{
+										element: <Home />,
+										path: ':menu', // Componente que maneja el contenido final
+									},
+								],
+								path: ':type',
+							},
+						],
+						path: ':module',
+					},
+				],
+				path: ':company',
+			},
+			{
+				element: <Administration />,
+				path: '/administration',
+			},
+		],
 		element: <RootContainer />,
 		errorElement: <Error />,
 		path: '/',
@@ -20,8 +45,6 @@ const router = createBrowserRouter([
 
 const RootView = (): ReactElement => {
 	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-	// theme.palette.mode = prefersDarkMode ? 'dark' : 'light';
 
 	const fullTheme = useMemo(() => createCustomTheme(prefersDarkMode ? 'dark' : 'light'), [prefersDarkMode]);
 

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import RootView from '@pages/RootView.tsx';
 
-import '../../assets/css/index.css';
+import '../../assets/css/App.css';
 import store from '../../store/store.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

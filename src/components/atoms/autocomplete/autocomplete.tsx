@@ -1,8 +1,8 @@
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 
-import { Theme, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { Autocomplete, Box, ListItem, TextField } from '@mui/material';
-import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 interface Option {
 	area: string;
@@ -30,7 +30,6 @@ const AutoComplete: FC<AutocompleteProps<any>> = ({
 	inputSize = 'medium',
 }) => {
 	const theme = useTheme();
-	const styles = atomStyles(theme);
 
 	const [value, setValue] = useState<any | null>(null);
 	const [inputValue, setInputValue] = useState<string>('');
@@ -40,8 +39,18 @@ const AutoComplete: FC<AutocompleteProps<any>> = ({
 		setOpen(inputValue !== '');
 	}, [inputValue]);
 
+	const StyledBox = styled(Box)`
+		margin: 1rem 0 1rem 0;
+		width: 100%;
+	`;
+
+	const StyledListItem = styled(ListItem)`
+		color: ${theme.palette.text.secondary};
+		background-color: ${theme.palette.grey[300]};
+	`;
+
 	return (
-		<Box css={styles.container}>
+		<StyledBox>
 			<Autocomplete
 				id={id}
 				freeSolo
@@ -68,26 +77,10 @@ const AutoComplete: FC<AutocompleteProps<any>> = ({
 				options={options}
 				renderInput={(params) => <TextField {...params} label={label} />}
 				onBlur={() => setInputValue('')}
-				renderOption={(props, option) => (
-					<ListItem {...props} css={styles.renderOption}>
-						{getOptionLabel(option)}
-					</ListItem>
-				)}
+				renderOption={(props, option) => <StyledListItem {...props}>{getOptionLabel(option)}</StyledListItem>}
 			/>
-		</Box>
+		</StyledBox>
 	);
 };
 
 export default AutoComplete;
-
-const atomStyles = (theme: Theme) => ({
-	container: css`
-		margin: 1rem 0 1rem 0;
-		width: 100%;
-	`,
-
-	renderOption: css`
-		color: ${theme.palette.text.secondary};
-		background-color: ${theme.palette.grey[300]};
-	`,
-});

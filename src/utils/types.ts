@@ -152,3 +152,11 @@ export interface Catalog {
 	catalog: string;
 	values: CatalogValue[];
 }
+
+export interface MenuOption {
+	active?: boolean;
+	name: string;
+	route: string;
+	uuid: string;
+	visible: boolean;
+}

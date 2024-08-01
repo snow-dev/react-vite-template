@@ -8,17 +8,18 @@ interface Props {
 	color?: string;
 	customStyles?: SerializedStyles;
 	title: string;
+	variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 const StyledBox = styled(Box)`
 	display: flex;
-	align-self: flex-start;
-	margin: 1rem 0 0.5rem 0;
+	align-items: center;
+	margin-left: 0.5rem;
 `;
 
-const Title: FC<Props> = ({ customStyles, title, color = 'text.secondary' }) => (
+const Title: FC<Props> = ({ customStyles, title, color = 'text.primary', variant = 'h5' }) => (
 	<StyledBox css={customStyles}>
-		<Typography variant='h5' color={color}>
+		<Typography variant={variant} color={color}>
 			{title}
 		</Typography>
 	</StyledBox>

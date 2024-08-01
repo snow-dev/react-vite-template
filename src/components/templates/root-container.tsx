@@ -1,54 +1,89 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Box } from '@mui/material';
-import { css } from '@emotion/react';
-import { Outlet } from '@mui/icons-material';
+import styled from '@emotion/styled';
 
-import Navbar from '../organisms/Navbar.tsx';
+import Navbar from '@organisms/Navbar/Navbar.tsx';
+import ToolBar from '@organisms/Toolbar/ToolBar.tsx';
+import Options from '@organisms/Options/Options.tsx';
+
+const StyledRoot = styled(Box)`
+	display: grid;
+	grid-template-areas:
+		'toolbar toolbar toolbar toolbar'
+		'navbar container container options'
+		'navbar container container options';
+	grid-template-columns: 2fr 4fr 4fr 2fr;
+	grid-template-rows: 3rem 1fr 1fr;
+	height: 100vh;
+	width: 100%;
+`;
+
+const StyledToolBar = styled(Box)`
+	grid-area: toolbar;
+
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 3rem;
+
+	@media (min-width: 768px) {
+		//height: 3rem;
+		//width: 80%;
+	}
+`;
+
+const StyledOutlet = styled(Box)`
+	grid-area: container;
+
+	display: flex;
+	width: 100%;
+	height: 100vh;
+
+	@media (min-width: 768px) {
+		height: 100vh;
+		width: 80%;
+	}
+`;
+
+const StyledNavbar = styled(Box)`
+	grid-area: navbar;
+
+	display: flex;
+	width: 100%;
+	height: 100vh;
+
+	flex-direction: column;
+
+	@media (min-width: 810px) {
+		width: 100%;
+	}
+`;
+
+const StyledMenu = styled(Box)`
+	display: flex;
+	flex-direction: row;
+`;
 
 const RootContainer: FC = () => (
-	<Fragment>
-		<Box css={styles.menu}>
-			<Navbar />
-		</Box>
+	<StyledRoot>
+		<StyledToolBar>
+			<ToolBar />
+		</StyledToolBar>
 
-		<Box css={styles.container}>
+		<StyledNavbar>
+			<Navbar />
+		</StyledNavbar>
+
+		<StyledOutlet>
 			<Outlet />
-		</Box>
-	</Fragment>
+		</StyledOutlet>
+
+		<StyledMenu>
+			<Options />
+		</StyledMenu>
+	</StyledRoot>
 );
 
 export default RootContainer;
-
-const styles = {
-	container: css`
-		display: flex;
-		flex-direction: column;
-		border-radius: 4px;
-		margin: 0 auto 1rem;
-
-		min-width: 390px;
-		width: 390px;
-		height: 90vh;
-		padding-top: 10vh;
-
-		@media (min-width: 810px) {
-			height: 100vh;
-			width: 760px;
-		}
-	`,
-
-	menu: css`
-		position: fixed;
-		top: 1rem;
-		width: 390px;
-		display: flex;
-		flex-direction: row;
-		align-self: flex-start;
-		z-index: 10;
-
-		@media (min-width: 810px) {
-			width: 760px;
-		}
-	`,
-};

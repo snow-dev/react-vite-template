@@ -31,7 +31,6 @@ export default defineConfig(({ command, mode }) => {
 				'@schemas': path.resolve(__dirname, 'src/components/schemas'),
 				'@slices': path.resolve(__dirname, 'src/store/slices'),
 				'@templates': path.resolve(__dirname, 'src/components/templates'),
-				'@utils': path.resolve(__dirname, 'src/utils'),
 			},
 		},
 	};

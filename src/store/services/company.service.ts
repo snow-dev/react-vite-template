@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-import { Company } from '../../utils/company.types.ts';
-import { MenuOption } from '../../utils/types.ts';
+import { MenuOption } from '@utils/types.ts';
+import { Company } from '@utils/company.types.ts';
 
 export const companyService = createApi({
 	baseQuery: fetchBaseQuery({

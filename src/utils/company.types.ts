@@ -1,5 +1,5 @@
-import { Option } from './menu.types.ts';
-import { User } from './user.types.ts';
+import { Option } from '@utils/menu.types.ts';
+import { User } from '@utils/user.types.ts';
 
 export interface Company {
 	country: string;

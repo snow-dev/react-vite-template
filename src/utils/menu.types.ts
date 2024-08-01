@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker';
-
-import { Company, fakeCompany } from './company.types.ts';
-import { fakeQueryOptions, Query } from './query.types.ts';
-import { fakeUser, User } from './user.types.ts';
-import { fakeValidation, Validation } from './validation.types.ts';
+import { Company, fakeCompany } from '@utils/company.types.ts';
+import { fakeQueryOptions, Query } from '@utils/query.types.ts';
+import { fakeUser, User } from '@utils/user.types.ts';
+import { fakeValidation, Validation } from '@utils/validation.types.ts';
 
 export interface Option {
 	company: Company;

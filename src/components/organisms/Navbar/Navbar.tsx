@@ -1,15 +1,15 @@
-import { FC, Fragment, useEffect, useMemo, useState } from 'react';
+import { FC, Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { Box, Typography } from '@mui/material';
 
 import { Container, ItemContainer, StyledButtonBase, StyledOptions } from '@organisms/Navbar/Navbar.styled.ts';
+import { MenuOption } from '@utils/types.ts';
 
 import { selectRoute, setRoute } from '../../../store/slices/navigationSlice.ts';
 import { useAppSelector } from '../../../store/hooks.ts';
 import { useLazyGetCompaniesQuery } from '../../../store/services/company.service.ts';
-import { MenuOption } from '../../../utils/types.ts';
 
 const modules: MenuOption[] = [
 	{
@@ -73,8 +73,8 @@ const Navbar: FC = () => {
 	const [activeModule, setActiveModule] = useState<number>(-1);
 	const [activeEscenarios, setActiveEscenarios] = useState<number>(-1);
 
-	const state = useAppSelector((state) => state);
-	const route = useMemo(() => selectRoute(state), [state]);
+	// const state = useAppSelector((state) => state);
+	const route = useAppSelector(selectRoute);
 
 	const [getCompanies, { data: companies }] = useLazyGetCompaniesQuery();
 

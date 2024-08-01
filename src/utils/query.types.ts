@@ -5,3 +5,11 @@ export interface Query {
 	updatedAt: Date;
 	uuid: string;
 }
+
+export const fakeQueryOptions = {
+	createdAt: new Date(),
+	name: 'fakeQuery',
+	query: 'fakeQuery',
+	updatedAt: new Date(),
+	uuid: 'fakeUuid',
+};

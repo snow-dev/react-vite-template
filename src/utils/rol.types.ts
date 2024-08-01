@@ -5,3 +5,11 @@ export interface Rol {
 	updatedAt: Date;
 	uuid: string;
 }
+
+export const fakeRolOptions = {
+	createdAt: new Date(),
+	name: 'fakeRol',
+	schema_json_string: 'fakeSchema',
+	updatedAt: new Date(),
+	uuid: 'fakeUuid',
+};

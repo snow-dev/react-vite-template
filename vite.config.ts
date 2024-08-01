@@ -30,7 +30,6 @@ export default defineConfig(({ command, mode }) => {
 				'@pages': path.resolve(__dirname, 'src/components/pages'),
 				'@schemas': path.resolve(__dirname, 'src/components/schemas'),
 				'@templates': path.resolve(__dirname, 'src/components/templates'),
-				'@utils': path.resolve(__dirname, 'src/utils'),
 			},
 		},
 	};

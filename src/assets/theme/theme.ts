@@ -98,33 +98,48 @@ const baseTheme: ThemeOptions = {
 		MuiFormHelperText: {
 			styleOverrides: {
 				root: {
-					color: greenColors[200],
+					color: greyColors[200],
 				},
 			},
 		},
 		MuiInputLabel: {
 			styleOverrides: {
 				root: {
+					// Color del label normal
 					'&.Mui-focused': {
-						color: blueColors[700],
+						color: greyColors[800], // Color del label al estar enfocado
 					},
+					'&.MuiInputLabel-shrink': {
+						color: greyColors[600], // Color del label cuando se reduce
+					},
+					color: greyColors[800],
 				},
 			},
 		},
+
 		MuiOutlinedInput: {
 			styleOverrides: {
 				notchedOutline: {
-					borderColor: blueColors[400],
+					borderColor: greyColors[400],
 				},
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[400],
+						color: greyColors[800],
 					},
+					// Color of normal label
+					'&.Mui-focused': {
+						color: greyColors[800], // Color del label al estar enfocado
+					},
+
 					'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-						borderColor: blueColors[800],
+						borderColor: greyColors[800],
+					},
+
+					'&.MuiInputLabel-shrink': {
+						color: greyColors[800], // Color del label cuando se reduce
 					},
 					'&:hover .MuiOutlinedInput-notchedOutline': {
-						borderColor: blueColors[600],
+						borderColor: greyColors[600],
 					},
 				},
 			},
@@ -133,7 +148,7 @@ const baseTheme: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[400],
+						color: greyColors[400],
 					},
 				},
 			},
@@ -142,7 +157,7 @@ const baseTheme: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[200],
+						color: greyColors[500],
 					},
 				},
 			},

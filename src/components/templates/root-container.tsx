@@ -43,7 +43,7 @@ const StyledOutlet = styled(Box)`
 
 	@media (min-width: 768px) {
 		height: 100vh;
-		width: 80%;
+		width: 100%;
 	}
 `;
 

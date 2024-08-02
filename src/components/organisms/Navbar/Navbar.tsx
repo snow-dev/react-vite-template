@@ -73,7 +73,6 @@ const Navbar: FC = () => {
 	const [activeModule, setActiveModule] = useState<number>(-1);
 	const [activeEscenarios, setActiveEscenarios] = useState<number>(-1);
 
-	// const state = useAppSelector((state) => state);
 	const route = useAppSelector(selectRoute);
 
 	const [getCompanies, { data: companies }] = useLazyGetCompaniesQuery();

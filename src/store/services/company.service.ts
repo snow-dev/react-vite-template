@@ -20,7 +20,7 @@ export const companyService = createApi({
 					(company: Company): MenuOption => ({
 						active: false,
 						name: company.name,
-						route: company.name,
+						route: company.name.toLowerCase(),
 						uuid: company.uuid,
 						visible: true,
 					}),

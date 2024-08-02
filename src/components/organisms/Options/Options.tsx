@@ -8,7 +8,7 @@ import OptionItem from '@atoms/option-item/option-item.tsx';
 
 import { useAppDispatch } from '../../../store/hooks.ts';
 import { setRoute } from '../../../store/slices/navigationSlice.ts';
-import { useLazyGetOptionsQuery } from '../../../store/services/option.service.ts';
+import { optionService, useLazyGetOptionsQuery } from '../../../store/services/option.service.ts';
 
 const Options: FC = () => {
 	const navigate = useNavigate();
@@ -22,7 +22,10 @@ const Options: FC = () => {
 	useEffect(() => {
 		const segments = location.pathname.split('/').filter((chunk: string) => chunk !== '');
 
-		if (segments.length < 3) setSelected('');
+		if (segments.length < 3) {
+			setSelected('');
+			dispatch(optionService.util.invalidateTags([{ id: 'LIST', type: 'options' }]));
+		}
 
 		if (segments[2] !== undefined && segments[3] !== selected) {
 			segments[3] = selected;
@@ -31,7 +34,7 @@ const Options: FC = () => {
 			dispatch(setRoute(path));
 			getOptions();
 		}
-	}, [dispatch, location.pathname, navigate, selected]);
+	}, [dispatch, getOptions, location.pathname, navigate, selected]);
 
 	return (
 		<Box>

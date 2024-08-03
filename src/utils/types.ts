@@ -1,9 +1,3 @@
-export interface CatalogValue {
-	kind?: string;
-	name: string;
-	value: string;
-}
-
 export interface SelectOption {
 	label: string;
 	value: string;

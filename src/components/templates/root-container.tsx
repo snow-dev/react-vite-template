@@ -8,6 +8,8 @@ import Navbar from '@organisms/Navbar/Navbar.tsx';
 import ToolBar from '@organisms/Toolbar/ToolBar.tsx';
 import Options from '@organisms/Options/Options.tsx';
 
+import { greyColors } from '../../assets/theme/theme.ts';
+
 const StyledRoot = styled(Box)`
 	display: grid;
 	grid-template-areas:
@@ -18,6 +20,7 @@ const StyledRoot = styled(Box)`
 	grid-template-rows: 3rem 1fr 1fr;
 	height: 100vh;
 	width: 100%;
+	background-color: ${greyColors[200]};
 `;
 
 const StyledToolBar = styled(Box)`
@@ -27,10 +30,9 @@ const StyledToolBar = styled(Box)`
 	flex-direction: row;
 	width: 100%;
 	height: 3rem;
+	background-color: ${greyColors[700]};
 
 	@media (min-width: 768px) {
-		//height: 3rem;
-		//width: 80%;
 	}
 `;
 
@@ -56,6 +58,8 @@ const StyledNavbar = styled(Box)`
 
 	flex-direction: column;
 
+	background-color: ${greyColors[700]};
+
 	@media (min-width: 810px) {
 		width: 100%;
 	}
@@ -64,9 +68,12 @@ const StyledNavbar = styled(Box)`
 const StyledMenu = styled(Box)`
 	display: flex;
 	flex-direction: row;
+	margin-top: 1rem;
 `;
 
 const RootContainer: FC = () => (
+	// const theme = useTheme();
+
 	<StyledRoot>
 		<StyledToolBar>
 			<ToolBar />
@@ -85,5 +92,4 @@ const RootContainer: FC = () => (
 		</StyledMenu>
 	</StyledRoot>
 );
-
 export default RootContainer;

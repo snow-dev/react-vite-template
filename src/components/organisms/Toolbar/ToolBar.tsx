@@ -16,17 +16,22 @@ const StyledContainer = styled(Box)`
 	}
 `;
 
+const StyledAvatar = styled(Avatar)`
+	width: 32px;
+	height: 32px;
+`;
+
 const ToolBar = () => (
 	<StyledContainer>
 		<Stack direction='row'>
-			<Avatar color='warning'>IN</Avatar>
+			<StyledAvatar color='warning'>IN</StyledAvatar>
 			<Title title={'Influx'} variant='h4' />
 		</Stack>
 
 		<Box>
-			<Avatar>
-				<VerifiedUser />
-			</Avatar>
+			<StyledAvatar>
+				<VerifiedUser fontSize='small' width />
+			</StyledAvatar>
 		</Box>
 	</StyledContainer>
 );

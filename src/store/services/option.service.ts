@@ -13,7 +13,7 @@ export const optionService = createApi({
 
 	endpoints: (build) => ({
 		getOptions: build.query<Option[], void>({
-			providesTags: (result, _error, _arg) => (result ? [{ id: 'LIST', type: 'options' }] : []),
+			providesTags: (result) => (result ? [{ id: 'LIST', type: 'options' }] : []),
 			query: () => '/menu',
 		}),
 	}),

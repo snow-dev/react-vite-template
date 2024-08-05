@@ -1,4 +1,6 @@
-import { Avatar, Box, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+import { Avatar, Box, IconButton, Stack } from '@mui/material';
 import { VerifiedUser } from '@mui/icons-material';
 import styled from '@emotion/styled';
 
@@ -21,19 +23,25 @@ const StyledAvatar = styled(Avatar)`
 	height: 32px;
 `;
 
-const ToolBar = () => (
-	<StyledContainer>
-		<Stack direction='row'>
-			<StyledAvatar color='warning'>IN</StyledAvatar>
-			<Title title={'Influx'} variant='h4' />
-		</Stack>
+const ToolBar = () => {
+	const navigate = useNavigate();
 
-		<Box>
-			<StyledAvatar>
-				<VerifiedUser fontSize='small' width />
-			</StyledAvatar>
-		</Box>
-	</StyledContainer>
-);
+	return (
+		<StyledContainer>
+			<Stack direction='row'>
+				<StyledAvatar color='warning'>IN</StyledAvatar>
+				<Title title={'Influx'} variant='h4' />
+			</Stack>
+
+			<Box>
+				<IconButton size='small' onClick={() => navigate('/administration')}>
+					<StyledAvatar>
+						<VerifiedUser fontSize='small' />
+					</StyledAvatar>
+				</IconButton>
+			</Box>
+		</StyledContainer>
+	);
+};
 
 export default ToolBar;

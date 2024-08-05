@@ -72,8 +72,6 @@ const StyledMenu = styled(Box)`
 `;
 
 const RootContainer: FC = () => (
-	// const theme = useTheme();
-
 	<StyledRoot>
 		<StyledToolBar>
 			<ToolBar />

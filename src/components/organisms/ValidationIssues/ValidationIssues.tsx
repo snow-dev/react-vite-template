@@ -2,8 +2,10 @@ import { FC } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, Typography } from '@mui/material';
-import styled from '@emotion/styled';
+
 import { Warning } from '@mui/icons-material';
+
+import styled from '@emotion/styled';
 
 import IconSvg from '@atoms/svg/IconSvg.tsx';
 

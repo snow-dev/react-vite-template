@@ -1,5 +1,5 @@
 import { ReactElement, useMemo } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
 
@@ -10,7 +10,7 @@ import Administration from '@pages/Administration.tsx';
 import { createCustomTheme } from '../../assets/theme/theme.ts';
 import RootContainer from '../templates/root-container.tsx';
 
-const router = createBrowserRouter([
+/*const router = createBrowserRouter([
 	{
 		children: [
 			{
@@ -20,28 +20,61 @@ const router = createBrowserRouter([
 							{
 								children: [
 									{
+										children: [
+											{
+												element: <Home />,
+												path: ':menu',
+											},
+										],
 										element: <Home />,
-										path: ':menu', // Componente que maneja el contenido final
+										path: ':type',
 									},
 								],
-								path: ':type',
+								element: <Home />,
+								path: ':module',
 							},
 						],
-						path: ':module',
+						element: <Home />,
+						path: ':company',
 					},
 				],
-				path: ':company',
+				element: <Home />,
+				path: 'home',
 			},
 			{
+				children: [
+					{
+						children: [
+							{
+								children: [
+									{
+										children: [
+											{
+												element: <Administration />,
+												path: ':menu',
+											},
+										],
+										element: <Administration />,
+										path: ':type',
+									},
+								],
+								element: <Administration />,
+								path: ':module',
+							},
+						],
+						element: <Administration />,
+						path: ':company',
+					},
+				],
 				element: <Administration />,
-				path: '/administration',
+				path: 'administration',
 			},
 		],
 		element: <RootContainer />,
 		errorElement: <Error />,
 		path: '/',
 	},
-]);
+]);*/
 
 const RootView = (): ReactElement => {
 	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -51,7 +84,39 @@ const RootView = (): ReactElement => {
 	return (
 		<ThemeProvider theme={fullTheme}>
 			<CssBaseline />
-			<RouterProvider router={router} />
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<RootContainer />}>
+						<Route path='home'>
+							<Route index element={<Home />} />
+							<Route path=':company'>
+								<Route index element={<Home />} />
+								<Route path=':module'>
+									<Route index element={<Home />} />
+									<Route path=':type'>
+										<Route index element={<Home />} />
+										<Route path=':menu' element={<Home />} />
+									</Route>
+								</Route>
+							</Route>
+						</Route>
+						<Route path='administration'>
+							<Route index element={<Administration />} />
+							<Route path=':company'>
+								<Route index element={<Administration />} />
+								<Route path=':module'>
+									<Route index element={<Administration />} />
+									<Route path=':type'>
+										<Route index element={<Administration />} />
+										<Route path=':menu' element={<Administration />} />
+									</Route>
+								</Route>
+							</Route>
+						</Route>
+						<Route path='*' element={<Error />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
 		</ThemeProvider>
 	);
 };

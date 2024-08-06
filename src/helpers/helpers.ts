@@ -87,3 +87,22 @@ export const getElapsedTimeFormatted = (elapsedTime: number) => {
 
 	return `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
 };
+
+/**
+ * Convert a string to camel case
+ * @param input : string
+ *
+ * @returns string
+ */
+export const convertToCamelCase = (input: string): string => {
+	const words = input.split(' ').filter((word) => word.length > 0);
+	const firstWord = words[0].toLowerCase();
+	const remainingWords = words.slice(1).map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+	return [firstWord, ...remainingWords].join('');
+};
+
+export interface Test {
+	age: number;
+	name: string;
+}

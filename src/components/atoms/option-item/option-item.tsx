@@ -1,9 +1,10 @@
 import { FC } from 'react';
 
 import { ListItem, ListItemButton, Typography } from '@mui/material';
+
 import styled from '@emotion/styled';
 
-import { Option } from '../../../utils/menu.types.ts';
+import { Option } from '@utils/menu.types.ts';
 
 interface OptionItemProps {
 	item: Option;
@@ -25,7 +26,7 @@ const StyledListItem = styled(ListItem)<ListItemProps>`
 `;
 
 const OptionItem: FC<OptionItemProps> = ({ optionFocused, item, setValue }) => (
-	<StyledListItem focused={optionFocused === item.name}>
+	<StyledListItem focused={optionFocused === item.uuid}>
 		<ListItemButton onClick={() => setValue(item.uuid)}>
 			<Typography variant='subtitle2' color='secondary'>
 				{item.name}

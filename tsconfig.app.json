@@ -15,7 +15,11 @@
       "@organisms/*": ["src/components/organisms/*"],
       "@schemas/*": ["src/components/schemas/*"],
       "@templates/*": ["src/components/templates/*"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["src/types/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@slices/*": ["src/store/slices/*"],
+      "@services/*": ["src/store/services/*"],
+      "@hooks/*": ["src/store/hooks/*"],
     },
 
     /* Bundler mode */

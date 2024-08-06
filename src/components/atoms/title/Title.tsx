@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
-import { SerializedStyles } from '@emotion/react';
 import { Box, Typography } from '@mui/material';
+
+import { SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
 interface Props {

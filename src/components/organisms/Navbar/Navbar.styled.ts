@@ -1,37 +1,9 @@
 import styled from '@emotion/styled';
-import { Box, ButtonBase } from '@mui/material';
-
-import { greyColors } from '../../../assets/theme/theme.ts';
 
 export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	height: 100vh;
-	background-color: ${greyColors[100]};
-`;
-
-export const StyledOptions = styled(Box)`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	height: 100%;
-	width: 100%;
-`;
-
-export const ItemContainer = styled(Box)`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-`;
-
-export const StyledButtonBase = styled(ButtonBase)<{ active: string }>`
-	//border-radius: 0;
-	padding-left: 10px;
-	background-color: transparent;
-	height: 3rem;
-	width: 100%;
-	place-content: flex-start;
-
-	${({ active }) => active === 'true' && 'text-decoration: none; place-content: flex-start;'}
+	margin: 1rem 0 0 0.5rem;
 `;

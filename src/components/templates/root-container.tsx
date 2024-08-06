@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Box } from '@mui/material';
+
 import styled from '@emotion/styled';
 
 import Navbar from '@organisms/Navbar/Navbar.tsx';
@@ -42,6 +43,8 @@ const StyledOutlet = styled(Box)`
 	display: flex;
 	width: 100%;
 	height: 100vh;
+	margin-top: 1rem;
+	padding: 0 1rem 0 1rem;
 
 	@media (min-width: 768px) {
 		height: 100vh;

@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { MenuOption } from '@utils/types.ts';
 import { Company } from '@utils/company.types.ts';
 
@@ -20,7 +21,7 @@ export const companyService = createApi({
 					(company: Company): MenuOption => ({
 						active: false,
 						name: company.name,
-						route: company.name.toLowerCase(),
+						route: company.name,
 						uuid: company.uuid,
 						visible: true,
 					}),

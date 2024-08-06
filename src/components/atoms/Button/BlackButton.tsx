@@ -1,8 +1,9 @@
 import { FC, ReactElement } from 'react';
 
-import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+
+import styled from '@emotion/styled';
 
 interface Props {
 	text: string;

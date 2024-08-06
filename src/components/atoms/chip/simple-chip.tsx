@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
 
 import { Chip } from '@mui/material';
+
 import { SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 

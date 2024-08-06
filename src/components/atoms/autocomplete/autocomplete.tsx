@@ -2,6 +2,7 @@ import { FC, SyntheticEvent, useEffect, useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { Autocomplete, Box, ListItem, TextField } from '@mui/material';
+
 import styled from '@emotion/styled';
 
 interface Option {
@@ -18,17 +19,9 @@ interface AutocompleteProps<T> {
 	inputSize?: 'small' | 'medium';
 	label: string;
 	options: T[];
-	setExpanded: (option: T) => void;
 }
 
-const AutoComplete: FC<AutocompleteProps<any>> = ({
-	id,
-	options,
-	setExpanded,
-	getOptionLabel,
-	label,
-	inputSize = 'medium',
-}) => {
+const AutoComplete: FC<AutocompleteProps<any>> = ({ id, options, getOptionLabel, label, inputSize = 'medium' }) => {
 	const theme = useTheme();
 
 	const [value, setValue] = useState<any | null>(null);
@@ -67,7 +60,6 @@ const AutoComplete: FC<AutocompleteProps<any>> = ({
 						// Manejar el caso en que newValue es un Option o null
 						setValue(newValue);
 						setInputValue('');
-						setExpanded(setExpanded(newValue));
 					}
 					setOpen(false);
 				}}

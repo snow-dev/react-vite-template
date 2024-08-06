@@ -33,7 +33,7 @@ export const blueColors = {
 	900: '#0D47A1',
 };
 
-const greyColors = {
+export const greyColors = {
 	100: '#E0E0E0',
 	200: '#BDBDBD',
 	300: '#9E9E9E',
@@ -46,7 +46,7 @@ const greyColors = {
 	900: '#000000',
 };
 
-const greenColors = {
+export const greenColors = {
 	100: '#C8E6C9',
 	200: '#A5D6A7',
 	300: '#009845',
@@ -72,7 +72,7 @@ export const redColors = {
 	900: '#B71C1C',
 };
 
-const warningColors = {
+export const warningColors = {
 	100: '#FFE0B2',
 	200: '#FFCC80',
 	300: '#FFB74D',
@@ -93,38 +93,53 @@ interface MyPaletteOptions extends PaletteOptions {
 	yellow: typeof warningColors;
 }
 
-const baseTheme: ThemeOptions = {
+export const baseTheme: ThemeOptions = {
 	components: {
 		MuiFormHelperText: {
 			styleOverrides: {
 				root: {
-					color: greenColors[200],
+					color: greyColors[200],
 				},
 			},
 		},
 		MuiInputLabel: {
 			styleOverrides: {
 				root: {
+					// Color del label normal
 					'&.Mui-focused': {
-						color: blueColors[700],
+						color: greyColors[800], // Color del label al estar enfocado
 					},
+					'&.MuiInputLabel-shrink': {
+						color: greyColors[600], // Color del label cuando se reduce
+					},
+					color: greyColors[800],
 				},
 			},
 		},
+
 		MuiOutlinedInput: {
 			styleOverrides: {
 				notchedOutline: {
-					borderColor: blueColors[400],
+					borderColor: greyColors[400],
 				},
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[400],
+						color: greyColors[800],
 					},
+					// Color of normal label
+					'&.Mui-focused': {
+						color: greyColors[800], // Color del label al estar enfocado
+					},
+
 					'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-						borderColor: blueColors[800],
+						borderColor: greyColors[800],
+					},
+
+					'&.MuiInputLabel-shrink': {
+						color: greyColors[800], // Color del label cuando se reduce
 					},
 					'&:hover .MuiOutlinedInput-notchedOutline': {
-						borderColor: blueColors[600],
+						borderColor: greyColors[600],
 					},
 				},
 			},
@@ -133,7 +148,7 @@ const baseTheme: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[400],
+						color: greyColors[400],
 					},
 				},
 			},
@@ -142,7 +157,7 @@ const baseTheme: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					'& .MuiInputBase-input': {
-						color: blueColors[200],
+						color: greyColors[500],
 					},
 				},
 			},

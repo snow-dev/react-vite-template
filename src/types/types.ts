@@ -1,9 +1,3 @@
-export interface CatalogValue {
-	kind?: string;
-	name: string;
-	value: string;
-}
-
 export interface SelectOption {
 	label: string;
 	value: string;
@@ -151,4 +145,12 @@ export interface Catalog {
 	_id: string;
 	catalog: string;
 	values: CatalogValue[];
+}
+
+export interface MenuOption {
+	active?: boolean;
+	name: string;
+	route: string;
+	uuid: string;
+	visible: boolean;
 }

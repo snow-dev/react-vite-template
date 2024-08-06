@@ -1,6 +1,6 @@
-import { Option } from '@utils/menu.types.ts';
-import { fakeRolOptions, Rol } from '@utils/rol.types.ts';
-import { fakeCompany } from '@utils/company.types.ts';
+import { Option } from './menu.types.ts';
+import { fakeRolOptions, Rol } from './rol.types.ts';
+import { fakeCompany } from './company.types.ts';
 
 export interface User {
 	company: any;

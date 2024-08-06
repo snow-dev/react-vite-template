@@ -1,8 +1,9 @@
 import { FC, SyntheticEvent, useState } from 'react';
 import { Control, Controller, FieldValues, UseFormRegister } from 'react-hook-form';
 
-import { css } from '@emotion/react';
 import { Box, useTheme, Autocomplete, TextField, ListItem, Chip } from '@mui/material';
+
+import { css } from '@emotion/react';
 
 import { SelectOption } from '@utils/types.ts';
 

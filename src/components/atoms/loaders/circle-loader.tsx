@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { Box, CircularProgress } from '@mui/material';
+
 import styled from '@emotion/styled';
 
 const StyledBox = styled(Box)`

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Option } from '../../utils/menu.types.ts';
+import { Option } from '@utils/menu.types.ts';
+
 import { RootState } from '../store.ts';
 
 const initialState = {

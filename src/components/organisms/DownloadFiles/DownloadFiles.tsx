@@ -1,9 +1,11 @@
 import { FC, ReactElement } from 'react';
 
 import { Box, Button, Card, Typography } from '@mui/material';
-import styled from '@emotion/styled';
 import { useTheme } from '@mui/material/styles';
+
 import { SimCardDownload } from '@mui/icons-material';
+
+import styled from '@emotion/styled';
 
 import Title from '@atoms/title/Title.tsx';
 import IconSvg from '@atoms/svg/IconSvg.tsx';

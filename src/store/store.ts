@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import { optionSlice } from './slices/optionSlice.ts';
-import { optionService } from './services/option.service.ts';
-import { navigationSlice } from './slices/navigationSlice.ts';
-import { companyService } from './services/company.service.ts';
+import { optionService } from '@services/option.service.ts';
+import { companyService } from '@services/company.service.ts';
+import { optionSlice } from '@slices/optionSlice.ts';
+import { navigationSlice } from '@slices/navigationSlice.ts';
 
 const store = configureStore({
 	middleware: (getDefaultMiddleware) =>

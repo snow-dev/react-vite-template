@@ -1,12 +1,13 @@
 import { FC, ReactElement } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-
-import { Box, Card } from '@mui/material';
-import styled from '@emotion/styled';
-import { useTheme } from '@mui/material/styles';
-
 import { FilterForm, filterSchema } from '@schemas/filter.schema.ts';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { Box, Card } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+
+import styled from '@emotion/styled';
+
 import ControlledAutoComplete from '@atoms/controlled-autocomplete/controlled-auto-complete.tsx';
 import FormError from '@atoms/form-error/form-error.tsx';
 import BlackButton from '@atoms/Button/BlackButton.tsx';
@@ -70,7 +71,7 @@ const Filters: FC = (): ReactElement => {
 	`;
 
 	const onSubmit: SubmitHandler<FilterForm> = async (data) => {
-		console.log('data: ', data);
+		console.debug('data: ', data);
 	};
 
 	return (

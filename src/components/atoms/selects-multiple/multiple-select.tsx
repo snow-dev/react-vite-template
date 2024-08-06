@@ -1,14 +1,16 @@
 import { Controller, UseFormRegister } from 'react-hook-form';
 import { FC } from 'react';
 
-import { css, SerializedStyles } from '@emotion/react';
-import CancelIcon from '@mui/icons-material/Cancel';
 import { Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select, Stack, Typography } from '@mui/material';
+
+import CancelIcon from '@mui/icons-material/Cancel';
 import CheckIcon from '@mui/icons-material/Check';
+
+import { css, SerializedStyles } from '@emotion/react';
 
 import ChipLoader from '@atoms/loaders/chip-loader.tsx';
 
-import { CatalogValue } from '../../../utils/types.ts';
+import { CatalogValue } from '@utils/types.ts';
 
 interface FormSelectProps {
 	control: any;

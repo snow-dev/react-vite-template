@@ -64,16 +64,30 @@ module.exports = {
           "module",
           "/^~/",
           [
-            "/^@emotion/",
             "/^@mui/material/",
+          ],
+          [
             "/^@mui/icons-material/",
           ],
-          "/^@/",
           [
-            "parent",
-            "sibling",
-            "index",
-          ]
+            "/^@emotion/",
+          ],
+          [
+            "/^@atoms/",
+            "/^@molecules/",
+            "/^@organisms/",
+            "/^@pages/",
+            "/^@templates/",
+          ],
+          [
+            "/^@slices/",
+            "/^@services/",
+            "/^@hooks/",
+          ],
+          [
+            "/^@helpers/",
+            "/^@utils/",
+          ],
         ]
       }
     ],

@@ -1,8 +1,15 @@
-import { Avatar, Box, Stack } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import { Avatar, Box, IconButton, Link, Stack } from '@mui/material';
+
 import { VerifiedUser } from '@mui/icons-material';
+
 import styled from '@emotion/styled';
 
 import Title from '@atoms/title/Title.tsx';
+
+import { setRoute } from '@slices/navigationSlice.ts';
 
 const StyledContainer = styled(Box)`
 	display: flex;
@@ -21,19 +28,40 @@ const StyledAvatar = styled(Avatar)`
 	height: 32px;
 `;
 
-const ToolBar = () => (
-	<StyledContainer>
-		<Stack direction='row'>
-			<StyledAvatar color='warning'>IN</StyledAvatar>
-			<Title title={'Influx'} variant='h4' />
-		</Stack>
+const LeftStack = styled(Stack)`
+	place-content: center;
+	align-items: center;
+`;
 
-		<Box>
-			<StyledAvatar>
-				<VerifiedUser fontSize='small' width />
-			</StyledAvatar>
-		</Box>
-	</StyledContainer>
-);
+const UndecoratedLink = styled(Link)`
+	text-decoration: none;
+	align-items: self-end;
+`;
+
+const ToolBar = () => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	return (
+		<StyledContainer>
+			<LeftStack direction='row'>
+				<IconButton onClick={() => navigate('/home')}>
+					<StyledAvatar color='warning'>IN</StyledAvatar>
+				</IconButton>
+				<UndecoratedLink href='/home'>
+					<Title title={'Influx'} variant='h4' />
+				</UndecoratedLink>
+			</LeftStack>
+
+			<Box>
+				<IconButton onClick={() => dispatch(setRoute('/administration'))}>
+					<StyledAvatar>
+						<VerifiedUser fontSize='small' />
+					</StyledAvatar>
+				</IconButton>
+			</Box>
+		</StyledContainer>
+	);
+};
 
 export default ToolBar;

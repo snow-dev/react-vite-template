@@ -1,10 +1,11 @@
 import { Controller, UseFormRegister } from 'react-hook-form';
 import { FC } from 'react';
 
-import { SerializedStyles } from '@emotion/react';
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select, Typography } from '@mui/material';
 
-import { CatalogValue } from '../../../utils/types.ts';
+import { SerializedStyles } from '@emotion/react';
+
+import { CatalogValue } from '@utils/types.ts';
 
 interface Props {
 	control: any;
